@@ -5,3 +5,7 @@ class Recipe():
         self = id
         self = img_url
         self = f2f_url
+
+    @staticmethod
+    def recipe_from_dict(dict):
+        return Recipe()
