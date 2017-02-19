@@ -17,10 +17,11 @@ def ingredients():
     db = client.pantry
     ingredients = db.ingredients
 
-    ingredients_list = json.loads(request.body.raw)
+    ingredients_list = request.get_json()
     ingredients_list = ingredients_list['ingredients'].split(';')
 
     new_ingredients = [{"name":x} for x in ingredients_list]
+    new_ingredients = new_ingredients[0:len(new_ingredients)-1]
     ingredients.insert_many(new_ingredients)
 
 @app.route('/index')
