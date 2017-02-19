@@ -2,6 +2,9 @@ from flask import Flask, render_template, redirect, url_for
 from pymongo import MongoClient
 
 app = Flask(__name__)
+client = MongoClient('130.245.183.174',27017)
+db = client.pantry
+ingredients = db.ingredients
 
 
 @app.route('/')
@@ -14,8 +17,9 @@ def index():
 
 @app.route('/search')
 def search():
+    ingredients_list = [ingredient['name'] for ingredient in ingredients.find()]
 
-    return render_template("search.html")
+    return render_template("search.html",ingredients_list=ingredients_list)
 
 @app.route('/help')
 def help():
