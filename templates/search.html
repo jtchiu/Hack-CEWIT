@@ -10,8 +10,8 @@
 
     <!-- Bootstrap -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}"</link>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/search.css')}}"</link>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/search.css')}}">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,7 +45,6 @@
               <h1 class="page-header">Recipe Search</h1>
             </div>
             <div class="ingredient-box">
-                  <div class="container">
                     <div class="ingredients-list">
                       {% if ingredients_list|length < 1 %}
                       <h3>You have no ingredients</h3>
@@ -64,68 +63,69 @@
 
                     </div>
                         <div class="btn-group">
-                          <div class="input-group">
-                            <input type="text" class="form-control search-bar" placeholder="Ingredient to add" aria-describedby="basic-addon1">
-                          </div>
+                           <div class="input-group">
+                             <input type="text" method="POST" action="/ingredients" id="search-bar-form" class="form-control search-bar" placeholder="Ingredient to add" aria-describedby="basic-addon1">
+                           </div>
 
-                            <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Select ingredients to add <span class="caret"></span></button>
-                              <ul class="dropdown-menu scrollable-menu" role = 'menu'>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">All-purpose flour</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Almonds</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Apricots</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Baking powder</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Baking soda</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Barley</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Black beans</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Breadcrumbs</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Brown sugar</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Butter</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Cannellini beans</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Capers</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Cheddar cheese</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Chickpeas</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Cornstarch</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Eggs</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Feta</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Garlic</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Granulated sugar</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Honey</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Jelly</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Kidney beans</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Milk</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Millet</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Mozzarella</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Olives</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Onions</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Parmesan</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Pasta</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Peanut butter</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Peanuts</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Plain yogurt</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Potatoes</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Quinoa</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Raisins</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Rice</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Rolled oats</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Salsa</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Stock/Broth</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Sunflower</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Tomatoes</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Tortillas</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Tuna fish</label></li>
-                                <li><input type="checkbox" id="ID" name="NAME" value="VALUE"><label for="ID">Wheatberries</label></li>
-                              </ul>
+                             <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Select ingredients to add <span class="caret"></span></button>
+                               <ul class="dropdown-menu scrollable-menu" role = 'menu'>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="All-purpose flour"><label for="ID">All-purpose flour</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Almonds"><label for="ID">Almonds</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Apricots"><label for="ID">Apricots</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Baking powder"><label for="ID">Baking powder</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Baking soda"><label for="ID">Baking soda</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Barley"><label for="ID">Barley</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Black beans"><label for="ID">Black beans</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Breadcrumbs"><label for="ID">Breadcrumbs</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Brown sugar"><label for="ID">Brown sugar</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Butter"><label for="ID">Butter</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Cannellini beans"><label for="ID">Cannellini beans</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Capers"><label for="ID">Capers</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Cheddar cheese"><label for="ID">Cheddar cheese</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Chickpeas"><label for="ID">Chickpeas</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Cornstarch"><label for="ID">Cornstarch</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Eggs"><label for="ID">Eggs</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Feta"><label for="ID">Feta</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Garlic"><label for="ID">Garlic</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Granulated sugar"><label for="ID">Granulated sugar</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Honey"><label for="ID">Honey</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Jelly"><label for="ID">Jelly</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Kidney beans"><label for="ID">Kidney beans</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Milk"><label for="ID">Milk</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Millet"><label for="ID">Millet</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Mozzarella"><label for="ID">Mozzarella</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Olives"><label for="ID">Olives</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Onions"><label for="ID">Onions</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Parmesan"><label for="ID">Parmesan</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Pasta"><label for="ID">Pasta</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Peanut butter"><label for="ID">Peanut butter</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Peanuts"><label for="ID">Peanuts</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Plain yogurt"><label for="ID">Plain yogurt</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Potatoes"><label for="ID">Potatoes</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Quinoa"><label for="ID">Quinoa</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Raisins"><label for="ID">Raisins</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Rice"><label for="ID">Rice</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Rolled oats"><label for="ID">Rolled oats</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Salsa"><label for="ID">Salsa</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Stock"><label for="ID">Stock/Broth</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Sunflower"><label for="ID">Sunflower</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Tomatoes"><label for="ID">Tomatoes</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Tortillas"><label for="ID">Tortillas</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Tuna"><label for="ID">Tuna fish</label></li>
+                                 <li><input type="checkbox" id="ID" name="NAME" value="Wheatberries"><label for="ID">Wheatberries</label></li>
+                               </ul>
 
-                            <button type="button" class="btn btn-default submit-btn">Submit</button>
+                             <button type="submit" id="search-bar-form-submit" class="btn btn-default submit-btn">Submit</button>
 
-                          </div>
+                           </div>
                         </div>
                       </div>
+                    </div>
 
 
 
-                      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-                      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script type="text/javascript">
           $(document).ready(function(){
             var ingredients = ["Baking powder","Baking soda","Brown sugar",
@@ -145,6 +145,8 @@
 
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"</script>
+    <script type="text/javascript" src="./static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./static/js/ingredients.js"></script>
+
   </body>
 </html>

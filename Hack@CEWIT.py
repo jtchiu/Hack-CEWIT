@@ -1,18 +1,27 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, request
 from pymongo import MongoClient
 from python.Recipe import recipe_from_dict
 import requests
 import json
 
 app = Flask(__name__)
-# client = MongoClient('130.245.183.174',80)
-# db = client.pantry
-# ingredients = db.ingredients
 
 
 @app.route('/')
 def homeHelper():
     return redirect(url_for('home'))
+
+@app.route('/ingredients', methods=["POST"])
+def ingredients():
+    client = MongoClient('130.245.183.174', 80)
+    db = client.pantry
+    ingredients = db.ingredients
+
+    ingredients_list = json.loads(request.body.raw)
+    ingredients_list = ingredients_list['ingredients'].split(';')
+
+    new_ingredients = [{"name":x} for x in ingredients_list]
+    ingredients.insert_many(new_ingredients)
 
 @app.route('/index')
 def index():
@@ -26,7 +35,7 @@ def index():
     r = r.content.decode('utf-8')
     r = json.loads(r)
 
-    r["recipes"] = r["recipes"][:3]
+    r["recipes"] = r["recipes"][:4]
 
     recipe_list = []
 

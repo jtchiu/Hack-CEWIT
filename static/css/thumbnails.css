@@ -98,10 +98,9 @@ nav ul li a:hover {
   margin: auto;
   text-align: center;
   width: 99.7%;
-  height: 850px;
+  height: 650px;
   background-color: rgba(0, 0, 0, 0.83);
   border-radius: 5px;
-  padding: 15px;
 }
 
 /*.thumbnails {*/
@@ -114,18 +113,27 @@ nav ul li a:hover {
   /*float: none;*/
 /*}*/
 
+.thumbnails{
+  max-height: 20px;
+}
 .row{
 
   max-height: 20px;
   max-width: 1000px;
   padding-left: 50px;
   padding-top: 200px;
-  /*overflow: hidden;*/
+
 }
 .row > li {
   align-content: center;
-  padding-top: 100px;
+  padding-top: 70px;
   padding-left: 200px;
+  overflow: scroll;
+}
+
+.img-responsive {
+  max-width: 70%;
+  display: inline-block;
 }
 
 .search-thumb {
@@ -164,8 +172,15 @@ nav ul li a:hover {
   margin-left: 18px;
   background-color: #2ECC71;
 }
+
 .pagination a{
   color: black;
   text-decoration: none;
   padding: 5px;
+  float: none;
+  display: inline-block;
+}
+
+.pagination > ul {
+  text-align: center;
 }
