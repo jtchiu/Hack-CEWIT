@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Food Beyond</title>
-    <link rel="shortcut icon" href="images/logo.png">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo.png')}}">
 
     <!-- Bootstrap -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="css/search.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}"</link>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/search.css')}}"</link>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -28,10 +29,10 @@
       <nav>
 
           <ul class="nav nav-justified">
-            <li><a href="home.html">Home</a></li>
-            <li class="active"><a href="search.html">My Ingredients</a></li>
-            <li><a href="index.html">Recipes</a></li>
-            <li><a href="help.html">About Us</a></li>
+            <li><a href="home">Home</a></li>
+            <li class="active"><a href="search">My Ingredients</a></li>
+            <li><a href="index">Recipes</a></li>
+            <li><a href="help">About Us</a></li>
 
           </ul>
 
@@ -49,6 +50,7 @@
                       <h3>My list of ingredients</h3>
                       <div class="list-of-ingredients">
                         <ul>
+                          <!--insert for loop here -->
                           <li>item1</li>
                         </ul>
 
@@ -136,6 +138,6 @@
 
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"</script>
   </body>
 </html>
