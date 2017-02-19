@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for, request, jsonify
 from pymongo import MongoClient
 from python.Recipe import recipe_from_dict
 import requests
@@ -23,6 +23,7 @@ def ingredients():
     new_ingredients = [{"name":x} for x in ingredients_list]
     new_ingredients = new_ingredients[0:len(new_ingredients)-1]
     ingredients.insert_many(new_ingredients)
+    return jsonify()
 
 @app.route('/index')
 def index():
@@ -67,7 +68,7 @@ def search():
     db = client.pantry
     ingredients = db.ingredients
 
-    ingredients_list = [ingredient['name'] for ingredient in ingredients.find()]
+    ingredients_list = set([ingredient['name'] for ingredient in ingredients.find()])
 
     return render_template("search.html",ingredients_list=ingredients_list)
 
