@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect, url_for
 from pymongo import MongoClient
 
 app = Flask(__name__)
-client = MongoClient('130.245.183.174',27017)
+client = MongoClient('130.245.183.174',80)
 db = client.pantry
 ingredients = db.ingredients
 
