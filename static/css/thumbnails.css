@@ -104,15 +104,32 @@ nav ul li a:hover {
   padding: 15px;
 }
 
-.thumbnails {
-  text-align: center;
+/*.thumbnails {*/
+  /*text-align: center;*/
+
+/*}*/
+
+/*.thumbnails > li {*/
+  /*display: inline-block;*/
+  /*float: none;*/
+/*}*/
+
+.row{
+
+  max-height: 20px;
+  max-width: 1000px;
+  padding-left: 50px;
+  padding-top: 200px;
+  /*overflow: hidden;*/
+}
+.row > li {
+  align-content: center;
   padding-top: 100px;
   padding-left: 200px;
 }
 
-.thumbnails > li {
-  display: inline-block;
-  float: none;
+.search-thumb {
+ margin-bottom: 30px;
 }
 
 .center-block {
