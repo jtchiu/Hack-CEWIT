@@ -47,14 +47,21 @@
             <div class="ingredient-box">
                   <div class="container">
                     <div class="ingredients-list">
+                      {% if ingredients_list|length < 1 %}
+                      <h3>You have no ingredients</h3>
+                      {% else %}
                       <h3>My list of ingredients</h3>
                       <div class="list-of-ingredients">
+
                         <ul>
                           <!--insert for loop here -->
+                          {% for ingredient in ingredients_list %}
                           <li>item1</li>
+                          {% endfor %}
                         </ul>
-
+                        {% endif %}
                       </div>
+
                     </div>
                         <div class="btn-group">
                           <div class="input-group">
